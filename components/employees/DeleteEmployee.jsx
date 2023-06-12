@@ -13,16 +13,13 @@ export default function DeleteEmployee(props) {
   const deleteEmployee = async () => {
     if (idEntered == id) {
       setLoading(true);
-      await deleteEmployeeById(id);
-      props.onChange();
-      setModalShow(false);
+      await deleteEmployeeById(id).then(() => {
+        props.onChange();
+        setLoading(false);
+      });
     }
   };
-  return loading ? (
-    <>
-      <Spinner animation="border" />
-    </>
-  ) : (
+  return (
     <div>
       <FaRegTrashAlt
         onClick={() => setModalShow(true)}
@@ -52,9 +49,17 @@ export default function DeleteEmployee(props) {
           </FloatingLabel>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => deleteEmployee()} variant="danger">
-            delete
-          </Button>
+          {
+            <Button onClick={() => deleteEmployee()} variant="danger">
+              {loading ? (
+                <>
+                  <Spinner animation="border" />
+                </>
+              ) : (
+                <> delete</>
+              )}
+            </Button>
+          }
           <Button variant="success" onClick={() => setModalShow(false)}>
             Close
           </Button>
