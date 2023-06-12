@@ -1,0 +1,7 @@
+{
+  "databaseURL": "https://MIMOUNE-Abderraouf-s-workspace-fdau2h.us-east-1.xata.sh/db/attendanceSystem",
+  "codegen": {
+    "output": "src/xata.js",
+    "moduleType": "esm"
+  }
+}

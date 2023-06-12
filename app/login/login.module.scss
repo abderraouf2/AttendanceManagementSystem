@@ -1,0 +1,76 @@
+.input {
+  height: 3vh;
+  width: 300px;
+  background-color: transparent;
+  border: none;
+  margin-top: 10%;
+  border-bottom: 1px solid black;
+}
+.input:focus {
+  outline: none !important;
+  transition: 0.5s;
+  border-bottom: 1px solid rgb(8, 50, 105);
+}
+.input::placeholder {
+  opacity: 0;
+}
+.label {
+  margin-bottom: 15px;
+  position: relative;
+  cursor: text;
+  border-bottom: 1px solid #ddd;
+}
+.span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(30px);
+  font-size: 0.825em;
+  transition-duration: 300ms;
+  opacity: 0.6;
+}
+.label:focus-within > .span,
+.input:not(:placeholder-shown) + .span {
+  color: rgb(8, 50, 105);
+  transform: translateY(8px);
+}
+.signinForm {
+  height: 80vh;
+  width: 40vw;
+  border-radius: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 2px 4px 14px -4px rgb(8, 50, 105);
+  -webkit-box-shadow: 2px 4px 14px -4px rgb(8, 50, 105);
+  -moz-box-shadow: 2px 4px 14px -4px rgb(8, 50, 105);
+}
+.form {
+  margin-top: -5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.formWrapper {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0077b6;
+}
+.btn {
+  height: 5vh;
+  width: 100%;
+  margin-top: 15%;
+  background-color: rgb(8, 50, 105);
+  color: white;
+}

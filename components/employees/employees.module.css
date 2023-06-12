@@ -1,0 +1,13 @@
+
+.btn{
+    background-color: #0077b6;
+}
+.btn:hover{
+    background-color: rgb(8, 50, 105);
+}
+.btn:focus{
+    background-color: rgb(8, 50, 105);
+}
+.delBtn{
+    background-color: #373F51;
+}
