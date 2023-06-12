@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { Tab, Row, Col, Nav } from "react-bootstrap";
 import { FiUsers } from "react-icons/fi";
-import { AiOutlineUser } from "react-icons/ai";
 import IoTDevicesPage from "@/components/tuyaDevices/IoTDevicesPage";
 import EmployeePage from "@/components/employees/EmployeePage";
 import AreaPage from "@/components/areas/AreaPage";

@@ -140,8 +140,8 @@ export default function AddEmployee() {
                     <option hidden value="">
                       -- select area --
                     </option>
-                    {areas.length > 0 &&
-                      areas.map((area) => (
+                    {areas?.length > 0 &&
+                      areas?.map((area) => (
                         <option key={area.id} value={area.id}>
                           {area.area_name}
                         </option>
@@ -159,8 +159,8 @@ export default function AddEmployee() {
                     <option hidden value="">
                       -- select department --
                     </option>
-                    {depts.length > 0 &&
-                      depts.map((dept) => (
+                    {depts?.length > 0 &&
+                      depts?.map((dept) => (
                         <option key={dept.id} value={dept.id}>
                           {dept.dept_name}
                         </option>

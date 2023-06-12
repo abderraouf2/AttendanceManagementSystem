@@ -33,7 +33,7 @@ export default function IoTDevicesPage() {
         </Button>
       </div>
       <div className=" w-[90vw] h-[600px] grid grid-cols-2 mt-[5vh] border-t-2 border-black">
-        {devices.length > 0 ? (
+        {devices?.length > 0 ? (
           devices.map((device) => {
             switch (device.category) {
               case "co2bj":

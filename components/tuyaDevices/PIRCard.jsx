@@ -113,7 +113,7 @@ export default function PIRCard({ device }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {logs.length > 0 &&
+                  {logs?.length > 0 &&
                     logs.map((log) => {
                       return (
                         <tr>

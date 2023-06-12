@@ -215,7 +215,7 @@ export default function Transactions(props) {
               </tr>
             </thead>
             <tbody>
-              {transactions.length > 0 &&
+              {transactions?.length > 0 &&
                 transactions
                   .filter(
                     (transaction) =>
