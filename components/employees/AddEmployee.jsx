@@ -28,6 +28,7 @@ export default function AddEmployee() {
   const [depts, setDepts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState("");
+  const [emp_code, setEmp_code] = useState("");
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -44,7 +45,8 @@ export default function AddEmployee() {
       dept,
       phone,
       address,
-      gender
+      gender,
+      emp_code
     );
   };
   useEffect(() => {
@@ -83,6 +85,15 @@ export default function AddEmployee() {
           ) : (
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="mb-3">
+                <Form.Group as={Col} md="6" controlId="validationCustom04">
+                  <Form.Label>employee code: (unique)</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="emp_code"
+                    onChange={(e) => setEmp_code(e.target.value)}
+                    required
+                  />
+                </Form.Group>
                 <Form.Group as={Col} md="6" controlId="validationCustom01">
                   <Form.Label>First name:</Form.Label>
                   <Form.Control
@@ -93,6 +104,8 @@ export default function AddEmployee() {
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
+              </Row>
+              <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom02">
                   <Form.Label>Last name:</Form.Label>
                   <Form.Control
@@ -103,8 +116,6 @@ export default function AddEmployee() {
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-              </Row>
-              <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom02">
                   <Form.Label>Select gender:</Form.Label>
                   <Form.Select
@@ -119,17 +130,17 @@ export default function AddEmployee() {
                     <option value="F">Female</option>
                   </Form.Select>
                 </Form.Group>
+              </Row>
+              <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom04">
                   <Form.Label>Phone number:</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="number"
                     placeholder="phone number"
                     onChange={(e) => setPhone(e.target.value)}
                     required
                   />
                 </Form.Group>
-              </Row>
-              <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom01">
                   <Form.Label>Select area:</Form.Label>
                   <Form.Select

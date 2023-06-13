@@ -4,10 +4,10 @@ import { Form, FloatingLabel } from "react-bootstrap";
 import AddArea from "../../components/areas/AddArea";
 import Areas from "../../components/areas/Areas";
 
-export default function page() {
+export default function AreasP() {
   const [search, setSearch] = useState("");
   return (
-    <div>
+    <div className=" flex flex-col w-[100vw] items-center  ">
       <div className=" h-[10vh] w-[90vw] mt-[5vh] flex flex-row justify-between ">
         <FloatingLabel
           controlId="floatingInput"
