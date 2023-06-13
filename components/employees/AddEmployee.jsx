@@ -14,7 +14,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { createEmployee } from "@/lib/manageEmployees";
-export default function AddEmployee() {
+export default function AddEmployee({ lastId }) {
   const [modalShow, setModalShow] = useState(false);
   const [validated, setValidated] = useState(false);
   const [name, setName] = useState("");
@@ -28,7 +28,7 @@ export default function AddEmployee() {
   const [depts, setDepts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState("");
-  const [emp_code, setEmp_code] = useState("");
+  const [emp_code, setEmp_code] = useState(lastId);
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -51,12 +51,18 @@ export default function AddEmployee() {
   };
   useEffect(() => {
     setLoading(true);
-    getAreas().then((areas) => setAreas(areas));
-    getDepartments().then((departments) => {
-      setDepts(departments);
-      setLoading(false);
-    });
+    getAreas()
+      .then((areas) => setAreas(areas))
+      .then(() => {
+        getDepartments().then((departments) => {
+          setDepts(departments);
+          setLoading(false);
+        });
+      });
   }, []);
+  useEffect(() => {
+    setEmp_code(lastId);
+  }, [lastId]);
   return (
     <div>
       <Button
@@ -92,6 +98,8 @@ export default function AddEmployee() {
                     placeholder="emp_code"
                     onChange={(e) => setEmp_code(e.target.value)}
                     required
+                    disabled
+                    value={emp_code}
                   />
                 </Form.Group>
                 <Form.Group as={Col} md="6" controlId="validationCustom01">

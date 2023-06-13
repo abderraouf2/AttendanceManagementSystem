@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, FloatingLabel } from "react-bootstrap";
 import AddEmployee from "./AddEmployee";
 import Employees from "./Employees";
@@ -15,6 +15,7 @@ export default function EmployeePage() {
   const [search, setSearch] = useState("");
   const [logoutLoading, setLogoutLoading] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [lastId, setLastId] = useState("");
   const uploadData = async () => {
     setLoading(true);
     await uploadDataToDevice().then(() => {
@@ -28,6 +29,9 @@ export default function EmployeePage() {
       setLogoutLoading(false);
     });
   };
+  useEffect(() => {
+    console.log({ lastId });
+  }, [lastId]);
   return (
     <div>
       <div className=" h-[10vh] w-[90vw] mt-[5vh] flex flex-row justify-between ">
@@ -40,8 +44,11 @@ export default function EmployeePage() {
           <Form.Control type="text" placeholder="search employee" />
         </FloatingLabel>
         <div className=" w-[35vw] h-[6vh] flex flex-row justify-between ">
-          <AddEmployee />
-          <Button className={cls(styles.btn, " w-[15vw] ")} onClick={() => uploadData() }>
+          <AddEmployee lastId={lastId} />
+          <Button
+            className={cls(styles.btn, " w-[15vw] ")}
+            onClick={() => uploadData()}
+          >
             <AiOutlineCloudUpload size={15} />
             {loading ? <>uploading...</> : <>upload to device</>}
           </Button>
@@ -54,7 +61,7 @@ export default function EmployeePage() {
         </div>
       </div>
       <div>
-        <Employees search={search} />
+        <Employees search={search} setLastId={setLastId} />
       </div>
     </div>
   );

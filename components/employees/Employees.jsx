@@ -6,14 +6,19 @@ import { Spinner } from "react-bootstrap";
 import DeleteEmployee from "./DeleteEmployee";
 import EditEmployee from "./EditEmployee";
 import EmployeeDetails from "./EmployeeDetails";
+
 export default function Employees(props) {
   const search = props.search ? props.search : "";
+  const setLastId = props.setLastId;
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState([]);
   const refresh = () => {
     getEmployees().then((response) => {
       setEmployees(response);
       setLoading(false);
+      let id;
+      id = parseInt(response[response.length - 1].emp_code) + 1;
+      setLastId(id);
     });
   };
   useEffect(() => {
