@@ -12,7 +12,7 @@ export default function Employees(props) {
   const [employees, setEmployees] = useState([]);
   const refresh = () => {
     getEmployees().then((response) => {
-      setEmployees(response.data);
+      setEmployees(response);
       setLoading(false);
     });
   };
@@ -44,7 +44,7 @@ export default function Employees(props) {
           <tbody>
             {employees?.length > 0 &&
               employees
-                .filter((employee) =>
+                ?.filter((employee) =>
                   employee.first_name.toLowerCase().includes(search)
                 )
                 .map((employee) => (
