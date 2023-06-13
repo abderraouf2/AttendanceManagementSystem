@@ -64,6 +64,16 @@ export default function RootLayout({ children }) {
                   >
                     attendance
                   </Nav.Link>
+                  <Nav.Link
+                    href="/tuyaDevices"
+                    style={
+                      path === "/tuyaDevices"
+                        ? { color: "grey" }
+                        : { color: "white" }
+                    }
+                  >
+                    Tuya devices
+                  </Nav.Link>
                 </Nav>
               </Container>
             </div>
